@@ -22,7 +22,7 @@ import com.yandex.metrica.YandexMetrica;
 import com.yandex.metrica.YandexMetricaConfig;
 import com.yandex.metrica.profile.UserProfile;
 import com.yandex.metrica.profile.Attribute;
-import com.yandex.metrica.profile.GenderAttribute;
+// import com.yandex.metrica.profile.GenderAttribute;
 
 import static com.facebook.react.bridge.ReadableType.Array;
 
@@ -108,17 +108,18 @@ public class AppMetricaModule extends ReactContextBaseJavaModule {
                     );
                     break;
                 case "gender":
-                    userProfileBuilder.apply(
-                      params.isNull(key)
-                        ? Attribute.gender().withValueReset()
-                        : Attribute.gender().withValue(
-                            params.getString(key).equals("female")
-                              ? GenderAttribute.Gender.FEMALE
-                              : params.getString(key).equals("male")
-                                ? GenderAttribute.Gender.MALE
-                                : GenderAttribute.Gender.OTHER
-                          )
-                    );
+                    // FIXME: can't access Gender
+                    // userProfileBuilder.apply(
+                    //   params.isNull(key)
+                    //     ? Attribute.gender().withValueReset()
+                    //     : Attribute.gender().withValue(
+                    //         params.getString(key).equals("female")
+                    //           ? GenderAttribute.Gender.FEMALE
+                    //           : params.getString(key).equals("male")
+                    //             ? GenderAttribute.Gender.MALE
+                    //             : GenderAttribute.Gender.OTHER
+                    //       )
+                    // );
                     break;
                 case "age":
                     userProfileBuilder.apply(
